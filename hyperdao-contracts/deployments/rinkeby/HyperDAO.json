@@ -1,0 +1,357 @@
+{
+  "address": "0xAc79dD500060b02A3135E207aF95404c65f40b15",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_safeMasterCopy",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_proxyFactoryMasterCopy",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "int256",
+          "name": "chatID",
+          "type": "int256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "safe",
+          "type": "address"
+        }
+      ],
+      "name": "HyperDaoAssembled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        },
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "name": "SignatureCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "approvedSignatures",
+      "outputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "chatID",
+          "type": "int256"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_owners",
+          "type": "address[]"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_threshold",
+          "type": "uint256"
+        }
+      ],
+      "name": "assembleDao",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "",
+          "type": "int256"
+        }
+      ],
+      "name": "chatToHyperDao",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "int256",
+          "name": "_chatID",
+          "type": "int256"
+        },
+        {
+          "internalType": "address",
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_value",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        },
+        {
+          "internalType": "enum Enum.Operation",
+          "name": "_operation",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_safeTxGas",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_baseGas",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_gasPrice",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_nonce",
+          "type": "uint256"
+        }
+      ],
+      "name": "generateSignature",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "hash",
+          "type": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "_data",
+          "type": "bytes"
+        },
+        {
+          "internalType": "bytes",
+          "name": "_signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "isValidSignature",
+      "outputs": [
+        {
+          "internalType": "bytes4",
+          "name": "",
+          "type": "bytes4"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_safe",
+          "type": "address"
+        },
+        {
+          "internalType": "int256",
+          "name": "_chatID",
+          "type": "int256"
+        }
+      ],
+      "name": "setSafe",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x022026b69737afbde1f0f58ca4731bb57afb15d6db425169e953ba7ec6e72a38",
+  "receipt": {
+    "to": null,
+    "from": "0x9cA70B93CaE5576645F5F069524A9B9c3aef5006",
+    "contractAddress": "0xAc79dD500060b02A3135E207aF95404c65f40b15",
+    "transactionIndex": 39,
+    "gasUsed": "822406",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x65edfca494e1b852bad1ed0d6c5149704c4883ee6ed6394a3eb94e726a3019c2",
+    "transactionHash": "0x022026b69737afbde1f0f58ca4731bb57afb15d6db425169e953ba7ec6e72a38",
+    "logs": [],
+    "blockNumber": 9516637,
+    "cumulativeGasUsed": "9023541",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xd9Db270c1B5E3Bd161E8c8503c55cEABeE709552",
+    "0xa6B71E26C5e0845f74c812102Ca7114b6a896AB2"
+  ],
+  "solcInputHash": "29941230ceba7af53401e4520d0a9d37",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_safeMasterCopy\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_proxyFactoryMasterCopy\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"int256\",\"name\":\"chatID\",\"type\":\"int256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"safe\",\"type\":\"address\"}],\"name\":\"HyperDaoAssembled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"name\":\"SignatureCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"name\":\"approvedSignatures\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"chatID\",\"type\":\"int256\"},{\"internalType\":\"address[]\",\"name\":\"_owners\",\"type\":\"address[]\"},{\"internalType\":\"uint256\",\"name\":\"_threshold\",\"type\":\"uint256\"}],\"name\":\"assembleDao\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"\",\"type\":\"int256\"}],\"name\":\"chatToHyperDao\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"int256\",\"name\":\"_chatID\",\"type\":\"int256\"},{\"internalType\":\"address\",\"name\":\"_to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"_value\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"},{\"internalType\":\"enum Enum.Operation\",\"name\":\"_operation\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"_safeTxGas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_baseGas\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_gasPrice\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_nonce\",\"type\":\"uint256\"}],\"name\":\"generateSignature\",\"outputs\":[{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"},{\"internalType\":\"bytes32\",\"name\":\"hash\",\"type\":\"bytes32\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes\",\"name\":\"_data\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"_signature\",\"type\":\"bytes\"}],\"name\":\"isValidSignature\",\"outputs\":[{\"internalType\":\"bytes4\",\"name\":\"\",\"type\":\"bytes4\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_safe\",\"type\":\"address\"},{\"internalType\":\"int256\",\"name\":\"_chatID\",\"type\":\"int256\"}],\"name\":\"setSafe\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"constructor\":{\"details\":\"HyperDAO constructor function.\"},\"generateSignature(int256,address,uint256,bytes,uint8,uint256,uint256,uint256,uint256)\":{\"details\":\"Signature generator\",\"params\":{\"_baseGas\":\"base gas for gnosis safe.\",\"_data\":\"encoded transaction data.\",\"_gasPrice\":\"gas price for gnosis safe transaction.\",\"_nonce\":\"gnosis safe contract nonce.\",\"_operation\":\"type of operation call.\",\"_safeTxGas\":\"safe transaction gas for gnosis safe.\",\"_to\":\"receiver address.\",\"_value\":\"value in wei.\"}},\"isValidSignature(bytes,bytes)\":{\"details\":\"Validate signature using EIP1271\",\"params\":{\"_data\":\"Encoded transaction hash supplied to verify signature.\",\"_signature\":\"Signature that needs to be verified.\"}},\"setSafe(address,int256)\":{\"details\":\"set new safe\",\"params\":{\"_safe\":\"safe address\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/HyperDAO.sol\":\"HyperDAO\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"@gnosis.pm/safe-contracts/contracts/interfaces/ISignatureValidator.sol\":{\"content\":\"// SPDX-License-Identifier: LGPL-3.0-only\\npragma solidity >=0.7.0 <0.9.0;\\n\\ncontract ISignatureValidatorConstants {\\n    // bytes4(keccak256(\\\"isValidSignature(bytes,bytes)\\\")\\n    bytes4 internal constant EIP1271_MAGIC_VALUE = 0x20c13b0b;\\n}\\n\\nabstract contract ISignatureValidator is ISignatureValidatorConstants {\\n    /**\\n     * @dev Should return whether the signature provided is valid for the provided data\\n     * @param _data Arbitrary length data signed on the behalf of address(this)\\n     * @param _signature Signature byte array associated with _data\\n     *\\n     * MUST return the bytes4 magic value 0x20c13b0b when function passes.\\n     * MUST NOT modify state (using STATICCALL for solc < 0.5, view modifier for solc > 0.5)\\n     * MUST allow external calls\\n     */\\n    function isValidSignature(bytes memory _data, bytes memory _signature) public view virtual returns (bytes4);\\n}\\n\",\"keccak256\":\"0x5b6e9bf17f28738ce88e751f420b0559f5151ba7bec2ff3c7bb31e42673d6801\",\"license\":\"LGPL-3.0-only\"},\"@gnosis.pm/safe-contracts/contracts/proxies/GnosisSafeProxy.sol\":{\"content\":\"// SPDX-License-Identifier: LGPL-3.0-only\\npragma solidity >=0.7.0 <0.9.0;\\n\\n/// @title IProxy - Helper interface to access masterCopy of the Proxy on-chain\\n/// @author Richard Meissner - <richard@gnosis.io>\\ninterface IProxy {\\n    function masterCopy() external view returns (address);\\n}\\n\\n/// @title GnosisSafeProxy - Generic proxy contract allows to execute all transactions applying the code of a master contract.\\n/// @author Stefan George - <stefan@gnosis.io>\\n/// @author Richard Meissner - <richard@gnosis.io>\\ncontract GnosisSafeProxy {\\n    // singleton always needs to be first declared variable, to ensure that it is at the same location in the contracts to which calls are delegated.\\n    // To reduce deployment costs this variable is internal and needs to be retrieved via `getStorageAt`\\n    address internal singleton;\\n\\n    /// @dev Constructor function sets address of singleton contract.\\n    /// @param _singleton Singleton address.\\n    constructor(address _singleton) {\\n        require(_singleton != address(0), \\\"Invalid singleton address provided\\\");\\n        singleton = _singleton;\\n    }\\n\\n    /// @dev Fallback function forwards all transactions and returns all received return data.\\n    fallback() external payable {\\n        // solhint-disable-next-line no-inline-assembly\\n        assembly {\\n            let _singleton := and(sload(0), 0xffffffffffffffffffffffffffffffffffffffff)\\n            // 0xa619486e == keccak(\\\"masterCopy()\\\"). The value is right padded to 32-bytes with 0s\\n            if eq(calldataload(0), 0xa619486e00000000000000000000000000000000000000000000000000000000) {\\n                mstore(0, _singleton)\\n                return(0, 0x20)\\n            }\\n            calldatacopy(0, 0, calldatasize())\\n            let success := delegatecall(gas(), _singleton, 0, calldatasize(), 0, 0)\\n            returndatacopy(0, 0, returndatasize())\\n            if eq(success, 0) {\\n                revert(0, returndatasize())\\n            }\\n            return(0, returndatasize())\\n        }\\n    }\\n}\\n\",\"keccak256\":\"0x3bfdd453d9f896f7029d15bcafd11886957b320ad1764309d9f74fa059715249\",\"license\":\"LGPL-3.0-only\"},\"contracts/HyperDAO.sol\":{\"content\":\"pragma solidity 0.8.9;\\n\\nimport \\\"./interface/ISafe.sol\\\";\\nimport \\\"@gnosis.pm/safe-contracts/contracts/interfaces/ISignatureValidator.sol\\\";\\nimport \\\"./interface/IGnosisSafeProxyFactory.sol\\\";\\n\\ncontract HyperDAO is ISignatureValidator {\\n  address safeMasterCopy;\\n  address proxyFactoryMasterCopy;\\n\\n  bytes32 private constant DOMAIN_SEPARATOR_TYPEHASH =\\n    0x7a9f5b2bf4dbb53eb85e012c6094a3d71d76e5bfe821f44ab63ed59311264e35;\\n  bytes32 private constant MSG_TYPEHASH =\\n    0xa1a7ad659422d5fc08fdc481fd7d8af8daf7993bc4e833452b0268ceaab66e5d; // mapping for msg typehash\\n\\n  mapping(int256 => address) public chatToHyperDao;\\n  mapping(bytes32 => bytes32) public approvedSignatures;\\n\\n  event SignatureCreated(bytes signature, bytes32 indexed hash);\\n  event HyperDaoAssembled(int256 indexed chatID, address indexed safe);\\n\\n  /**\\n   * @dev HyperDAO constructor function.\\n   */\\n  constructor(address _safeMasterCopy, address _proxyFactoryMasterCopy) {\\n    safeMasterCopy = _safeMasterCopy;\\n    proxyFactoryMasterCopy = _proxyFactoryMasterCopy;\\n  }\\n\\n  function assembleDao(\\n    int256 chatID,\\n    address[] memory _owners,\\n    uint256 _threshold\\n  ) public {\\n    // create safe through proxy\\n    address chat = _createNewSafe(_owners, _threshold, uint256(chatID));\\n    chatToHyperDao[chatID] = chat;\\n\\n    emit HyperDaoAssembled(chatID, chat);\\n  }\\n\\n  // This function need to be implemented in the function above\\n  // minimal, to add new owners at the time of creating a new Gnosis Safe\\n  function _createNewSafe(\\n    address[] memory _owners,\\n    uint256 _threshold,\\n    uint256 nonce\\n  ) internal returns (address) {\\n    bytes memory initializer = abi.encodeWithSignature(\\n      \\\"setup(address[],uint256,address,bytes,address,address,uint256,address)\\\",\\n      _owners,\\n      _threshold,\\n      address(0),\\n      \\\"0x\\\",\\n      address(0),\\n      address(0),\\n      0,\\n      address(0)\\n    );\\n    return\\n      address(\\n        IGnosisSafeProxyFactory(proxyFactoryMasterCopy).createProxyWithNonce(\\n          safeMasterCopy,\\n          initializer,\\n          nonce\\n        )\\n      );\\n  }\\n\\n  /**\\n   * @dev                   Signature generator\\n   * @param _to             receiver address.\\n   * @param _value          value in wei.\\n   * @param _data           encoded transaction data.\\n   * @param _operation      type of operation call.\\n   * @param _safeTxGas      safe transaction gas for gnosis safe.\\n   * @param _baseGas        base gas for gnosis safe.\\n   * @param _gasPrice       gas price for gnosis safe transaction.\\n   * @param _nonce          gnosis safe contract nonce.\\n   */\\n  function generateSignature(\\n    int256 _chatID,\\n    address _to,\\n    uint256 _value,\\n    bytes calldata _data,\\n    Enum.Operation _operation,\\n    uint256 _safeTxGas,\\n    uint256 _baseGas,\\n    uint256 _gasPrice,\\n    uint256 _nonce\\n  ) external returns (bytes memory signature, bytes32 hash) {\\n    // check if transaction parameters are correct\\n    address currentSafe = chatToHyperDao[_chatID];\\n\\n    // get contractTransactionHash from gnosis safe\\n    hash = Safe(currentSafe).getTransactionHash(\\n      _to,\\n      0,\\n      _data,\\n      _operation,\\n      _safeTxGas,\\n      _baseGas,\\n      _gasPrice,\\n      address(0),\\n      address(0),\\n      _nonce\\n    );\\n\\n    bytes memory paddedAddress = bytes.concat(\\n      bytes12(0),\\n      bytes20(address(this))\\n    );\\n    bytes memory messageHash = _encodeMessageHash(hash);\\n    // check if transaction is not signed before\\n    require(\\n      approvedSignatures[hash] != keccak256(messageHash),\\n      \\\"Signer: transaction already signed\\\"\\n    );\\n\\n    // generate signature and add it to approvedSignatures mapping\\n    signature = bytes.concat(\\n      paddedAddress,\\n      bytes32(uint256(65)),\\n      bytes1(0),\\n      bytes32(uint256(messageHash.length)),\\n      messageHash\\n    );\\n    approvedSignatures[hash] = keccak256(messageHash);\\n    emit SignatureCreated(signature, hash);\\n  }\\n\\n  /**\\n   * @dev                Validate signature using EIP1271\\n   * @param _data        Encoded transaction hash supplied to verify signature.\\n   * @param _signature   Signature that needs to be verified.\\n   */\\n  function isValidSignature(bytes memory _data, bytes memory _signature)\\n    public\\n    view\\n    override\\n    returns (bytes4)\\n  {\\n    if (_data.length == 32) {\\n      bytes32 hash;\\n      assembly {\\n        hash := mload(add(_data, 32))\\n      }\\n      if (approvedSignatures[hash] == keccak256(_signature)) {\\n        return EIP1271_MAGIC_VALUE;\\n      }\\n    } else {\\n      if (approvedSignatures[keccak256(_data)] == keccak256(_signature)) {\\n        return EIP1271_MAGIC_VALUE;\\n      }\\n    }\\n    return \\\"0x\\\";\\n  }\\n\\n  /**\\n   * @dev               Get the byte hash of function call i.e. first four bytes of data\\n   * @param data        encoded transaction data.\\n   */\\n  function _getFunctionHashFromData(bytes memory data)\\n    private\\n    pure\\n    returns (bytes4 functionHash)\\n  {\\n    assembly {\\n      functionHash := mload(add(data, 32))\\n    }\\n  }\\n\\n  /**\\n   * @dev                encode message with contants\\n   * @param message      the message that needs to be encoded\\n   */\\n  function _encodeMessageHash(bytes32 message)\\n    private\\n    pure\\n    returns (bytes memory)\\n  {\\n    bytes32 safeMessageHash = keccak256(abi.encode(MSG_TYPEHASH, message));\\n    return\\n      abi.encodePacked(\\n        bytes1(0x19),\\n        bytes1(0x23),\\n        keccak256(abi.encode(DOMAIN_SEPARATOR_TYPEHASH, safeMessageHash))\\n      );\\n  }\\n\\n  /**\\n   * @dev                set new safe\\n   * @param _safe        safe address\\n   */\\n  function setSafe(address _safe, int256 _chatID) public {\\n    require(\\n      msg.sender == chatToHyperDao[_chatID],\\n      \\\"Signer: only safe functionality\\\"\\n    );\\n    require(_safe != address(0), \\\"Signer: new safe cannot be zero address\\\");\\n    chatToHyperDao[_chatID] = _safe;\\n  }\\n}\\n\",\"keccak256\":\"0xd74ce760e6e88f23ca53f7d5e4bd79badd3b96cdc44b2e151104d6cd1ba7ce8c\"},\"contracts/interface/IGnosisSafeProxyFactory.sol\":{\"content\":\"pragma solidity 0.8.9;\\n\\nimport \\\"@gnosis.pm/safe-contracts/contracts/proxies/GnosisSafeProxy.sol\\\";\\n\\ninterface IGnosisSafeProxyFactory {\\n  // function createProxy(address singleton, bytes memory data) external returns (GnosisSafeProxy proxy);\\n  function createProxyWithNonce(\\n    address _singleton,\\n    bytes memory initializer,\\n    uint256 saltNonce\\n  ) external returns (GnosisSafeProxy proxy);\\n}\\n\",\"keccak256\":\"0x3e97213e02e476a30216ab4d4320374af7e507692c941f863aa83da7c19bf355\"},\"contracts/interface/ISafe.sol\":{\"content\":\"pragma solidity 0.8.9;\\n\\ncontract Enum {\\n    enum Operation {\\n        Call,\\n        DelegateCall\\n    }\\n}\\n\\ninterface Safe {\\n    function getTransactionHash(\\n        address to,\\n        uint256 value,\\n        bytes calldata data,\\n        Enum.Operation operation,\\n        uint256 safeTxGas,\\n        uint256 baseGas,\\n        uint256 gasPrice,\\n        address gasToken,\\n        address refundReceiver,\\n        uint256 _nonce\\n    ) external view returns (bytes32);\\n}\\n\",\"keccak256\":\"0xc7724bbcf6098d1723bc912172543499b5e3ef1b2a8ff20aa6c0fc9cba0243f1\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50604051610dcc380380610dcc83398101604081905261002f9161007c565b600080546001600160a01b039384166001600160a01b031991821617909155600180549290931691161790556100af565b80516001600160a01b038116811461007757600080fd5b919050565b6000806040838503121561008f57600080fd5b61009883610060565b91506100a660208401610060565b90509250929050565b610d0e806100be6000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c80630b75495c1461006757806320c13b0b1461007c5780636b23ea78146100ad578063c61abba2146100ee578063e0b683ea14610101578063e14ff99814610122575b600080fd5b61007a61007536600461070b565b610150565b005b61008f61008a3660046107ee565b61024f565b6040516001600160e01b031990911681526020015b60405180910390f35b6100d66100bb366004610852565b6002602052600090815260409020546001600160a01b031681565b6040516001600160a01b0390911681526020016100a4565b61007a6100fc36600461086b565b6102da565b61011461010f366004610945565b610343565b6040516100a4929190610a72565b610142610130366004610852565b60036020526000908152604090205481565b6040519081526020016100a4565b6000818152600260205260409020546001600160a01b031633146101bb5760405162461bcd60e51b815260206004820152601f60248201527f5369676e65723a206f6e6c7920736166652066756e6374696f6e616c6974790060448201526064015b60405180910390fd5b6001600160a01b0382166102215760405162461bcd60e51b815260206004820152602760248201527f5369676e65723a206e657720736166652063616e6e6f74206265207a65726f206044820152666164647265737360c81b60648201526084016101b2565b600090815260026020526040902080546001600160a01b0319166001600160a01b0392909216919091179055565b600082516020141561029557602083810151835184830120600082815260039093526040909220549091141561028f57506320c13b0b60e01b90506102d4565b506102cc565b818051906020012060036000858051906020012081526020019081526020016000205414156102cc57506320c13b0b60e01b6102d4565b5061060f60f31b5b92915050565b60006102e7838386610612565b60008581526002602052604080822080546001600160a01b0319166001600160a01b03851690811790915590519293509186917ff1bb5d022d6a042832d2f8f58dca58751c185016ed8ec908ad62478ddab0042591a350505050565b6060600080600260008e815260200190815260200160002060009054906101000a90046001600160a01b03169050806001600160a01b031663d8d11f788d60008d8d8d8d8d8d6000808f6040518c63ffffffff1660e01b81526004016103b39b9a99989796959493929190610a94565b60206040518083038186803b1580156103cb57600080fd5b505afa1580156103df573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104039190610b45565b604080516000602082018190526bffffffffffffffffffffffff193060601b16602c830152929450016040516020818303038152906040529050600061050684604080517fa1a7ad659422d5fc08fdc481fd7d8af8daf7993bc4e833452b0268ceaab66e5d602080830191909152818301939093528151808203830181526060820183528051908401207f7a9f5b2bf4dbb53eb85e012c6094a3d71d76e5bfe821f44ab63ed59311264e35608083015260a0808301919091528251808303909101815260c0820183528051930192909220601960f81b60e0840152602360f81b60e184015260e28084019190915281518084039091018152610102909201905290565b905080805190602001206003600086815260200190815260200160002054141561057d5760405162461bcd60e51b815260206004820152602260248201527f5369676e65723a207472616e73616374696f6e20616c7265616479207369676e604482015261195960f21b60648201526084016101b2565b80516040516105989184916041916000918690602001610b5e565b604051602081830303815290604052945080805190602001206003600086815260200190815260200160002081905550837f4418bf19096bdd1b926a95d3cba8654e780b1b8b9a68526fb2faa0de58040d85866040516105f89190610bac565b60405180910390a25050509a509a98505050505050505050565b600080848460008060008060006040516024016106359796959493929190610bc6565b60408051601f198184030181529181526020820180516001600160e01b031663b63e800d60e01b1790526001546000549151631688f0b960e01b81529293506001600160a01b0390811692631688f0b99261069892169085908890600401610c87565b602060405180830381600087803b1580156106b257600080fd5b505af11580156106c6573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906106ea9190610cbb565b95945050505050565b6001600160a01b038116811461070857600080fd5b50565b6000806040838503121561071e57600080fd5b8235610729816106f3565b946020939093013593505050565b634e487b7160e01b600052604160045260246000fd5b604051601f8201601f1916810167ffffffffffffffff8111828210171561077657610776610737565b604052919050565b600082601f83011261078f57600080fd5b813567ffffffffffffffff8111156107a9576107a9610737565b6107bc601f8201601f191660200161074d565b8181528460208386010111156107d157600080fd5b816020850160208301376000918101602001919091529392505050565b6000806040838503121561080157600080fd5b823567ffffffffffffffff8082111561081957600080fd5b6108258683870161077e565b9350602085013591508082111561083b57600080fd5b506108488582860161077e565b9150509250929050565b60006020828403121561086457600080fd5b5035919050565b60008060006060848603121561088057600080fd5b8335925060208085013567ffffffffffffffff808211156108a057600080fd5b818701915087601f8301126108b457600080fd5b8135818111156108c6576108c6610737565b8060051b91506108d784830161074d565b818152918301840191848101908a8411156108f157600080fd5b938501935b8385101561091b578435925061090b836106f3565b82825293850193908501906108f6565b979a979950505050604095909501359450505050565b80356002811061094057600080fd5b919050565b6000806000806000806000806000806101208b8d03121561096557600080fd5b8a35995060208b0135610977816106f3565b985060408b0135975060608b013567ffffffffffffffff8082111561099b57600080fd5b818d0191508d601f8301126109af57600080fd5b8135818111156109be57600080fd5b8e60208285010111156109d057600080fd5b6020830199508098505050506109e860808c01610931565b945060a08b0135935060c08b0135925060e08b013591506101008b013590509295989b9194979a5092959850565b60005b83811015610a31578181015183820152602001610a19565b83811115610a40576000848401525b50505050565b60008151808452610a5e816020860160208601610a16565b601f01601f19169290920160200192915050565b604081526000610a856040830185610a46565b90508260208301529392505050565b6001600160a01b038c168152602081018b905261014060408201819052810189905260006101608a8c828501376000838c01820152601f8b01601f1916830101905060028910610af457634e487b7160e01b600052602160045260246000fd5b8860608301528760808301528660a08301528560c0830152610b2160e08301866001600160a01b03169052565b6001600160a01b039390931661010082015261012001529998505050505050505050565b600060208284031215610b5757600080fd5b5051919050565b60008651610b70818460208b01610a16565b808301905086815260ff60f81b861660208201528460218201528351610b9d816041840160208801610a16565b01604101979650505050505050565b602081526000610bbf6020830184610a46565b9392505050565b6101008082528851908201819052600090610120830190602090818c01845b82811015610c0a5781516001600160a01b031685529383019390830190600101610be5565b50505083018990526001600160a01b038816604084015282810360608401526002815261060f60f31b602082015260408101915050610c5460808301876001600160a01b03169052565b6001600160a01b03851660a083015260ff841660c08301526001600160a01b03831660e083015298975050505050505050565b6001600160a01b0384168152606060208201819052600090610cab90830185610a46565b9050826040830152949350505050565b600060208284031215610ccd57600080fd5b8151610bbf816106f356fea2646970667358221220dcfb091dd69a00f0da5219e4317b62ef8f8091dd7ba6404c52385e922b1d018664736f6c63430008090033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100625760003560e01c80630b75495c1461006757806320c13b0b1461007c5780636b23ea78146100ad578063c61abba2146100ee578063e0b683ea14610101578063e14ff99814610122575b600080fd5b61007a61007536600461070b565b610150565b005b61008f61008a3660046107ee565b61024f565b6040516001600160e01b031990911681526020015b60405180910390f35b6100d66100bb366004610852565b6002602052600090815260409020546001600160a01b031681565b6040516001600160a01b0390911681526020016100a4565b61007a6100fc36600461086b565b6102da565b61011461010f366004610945565b610343565b6040516100a4929190610a72565b610142610130366004610852565b60036020526000908152604090205481565b6040519081526020016100a4565b6000818152600260205260409020546001600160a01b031633146101bb5760405162461bcd60e51b815260206004820152601f60248201527f5369676e65723a206f6e6c7920736166652066756e6374696f6e616c6974790060448201526064015b60405180910390fd5b6001600160a01b0382166102215760405162461bcd60e51b815260206004820152602760248201527f5369676e65723a206e657720736166652063616e6e6f74206265207a65726f206044820152666164647265737360c81b60648201526084016101b2565b600090815260026020526040902080546001600160a01b0319166001600160a01b0392909216919091179055565b600082516020141561029557602083810151835184830120600082815260039093526040909220549091141561028f57506320c13b0b60e01b90506102d4565b506102cc565b818051906020012060036000858051906020012081526020019081526020016000205414156102cc57506320c13b0b60e01b6102d4565b5061060f60f31b5b92915050565b60006102e7838386610612565b60008581526002602052604080822080546001600160a01b0319166001600160a01b03851690811790915590519293509186917ff1bb5d022d6a042832d2f8f58dca58751c185016ed8ec908ad62478ddab0042591a350505050565b6060600080600260008e815260200190815260200160002060009054906101000a90046001600160a01b03169050806001600160a01b031663d8d11f788d60008d8d8d8d8d8d6000808f6040518c63ffffffff1660e01b81526004016103b39b9a99989796959493929190610a94565b60206040518083038186803b1580156103cb57600080fd5b505afa1580156103df573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906104039190610b45565b604080516000602082018190526bffffffffffffffffffffffff193060601b16602c830152929450016040516020818303038152906040529050600061050684604080517fa1a7ad659422d5fc08fdc481fd7d8af8daf7993bc4e833452b0268ceaab66e5d602080830191909152818301939093528151808203830181526060820183528051908401207f7a9f5b2bf4dbb53eb85e012c6094a3d71d76e5bfe821f44ab63ed59311264e35608083015260a0808301919091528251808303909101815260c0820183528051930192909220601960f81b60e0840152602360f81b60e184015260e28084019190915281518084039091018152610102909201905290565b905080805190602001206003600086815260200190815260200160002054141561057d5760405162461bcd60e51b815260206004820152602260248201527f5369676e65723a207472616e73616374696f6e20616c7265616479207369676e604482015261195960f21b60648201526084016101b2565b80516040516105989184916041916000918690602001610b5e565b604051602081830303815290604052945080805190602001206003600086815260200190815260200160002081905550837f4418bf19096bdd1b926a95d3cba8654e780b1b8b9a68526fb2faa0de58040d85866040516105f89190610bac565b60405180910390a25050509a509a98505050505050505050565b600080848460008060008060006040516024016106359796959493929190610bc6565b60408051601f198184030181529181526020820180516001600160e01b031663b63e800d60e01b1790526001546000549151631688f0b960e01b81529293506001600160a01b0390811692631688f0b99261069892169085908890600401610c87565b602060405180830381600087803b1580156106b257600080fd5b505af11580156106c6573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906106ea9190610cbb565b95945050505050565b6001600160a01b038116811461070857600080fd5b50565b6000806040838503121561071e57600080fd5b8235610729816106f3565b946020939093013593505050565b634e487b7160e01b600052604160045260246000fd5b604051601f8201601f1916810167ffffffffffffffff8111828210171561077657610776610737565b604052919050565b600082601f83011261078f57600080fd5b813567ffffffffffffffff8111156107a9576107a9610737565b6107bc601f8201601f191660200161074d565b8181528460208386010111156107d157600080fd5b816020850160208301376000918101602001919091529392505050565b6000806040838503121561080157600080fd5b823567ffffffffffffffff8082111561081957600080fd5b6108258683870161077e565b9350602085013591508082111561083b57600080fd5b506108488582860161077e565b9150509250929050565b60006020828403121561086457600080fd5b5035919050565b60008060006060848603121561088057600080fd5b8335925060208085013567ffffffffffffffff808211156108a057600080fd5b818701915087601f8301126108b457600080fd5b8135818111156108c6576108c6610737565b8060051b91506108d784830161074d565b818152918301840191848101908a8411156108f157600080fd5b938501935b8385101561091b578435925061090b836106f3565b82825293850193908501906108f6565b979a979950505050604095909501359450505050565b80356002811061094057600080fd5b919050565b6000806000806000806000806000806101208b8d03121561096557600080fd5b8a35995060208b0135610977816106f3565b985060408b0135975060608b013567ffffffffffffffff8082111561099b57600080fd5b818d0191508d601f8301126109af57600080fd5b8135818111156109be57600080fd5b8e60208285010111156109d057600080fd5b6020830199508098505050506109e860808c01610931565b945060a08b0135935060c08b0135925060e08b013591506101008b013590509295989b9194979a5092959850565b60005b83811015610a31578181015183820152602001610a19565b83811115610a40576000848401525b50505050565b60008151808452610a5e816020860160208601610a16565b601f01601f19169290920160200192915050565b604081526000610a856040830185610a46565b90508260208301529392505050565b6001600160a01b038c168152602081018b905261014060408201819052810189905260006101608a8c828501376000838c01820152601f8b01601f1916830101905060028910610af457634e487b7160e01b600052602160045260246000fd5b8860608301528760808301528660a08301528560c0830152610b2160e08301866001600160a01b03169052565b6001600160a01b039390931661010082015261012001529998505050505050505050565b600060208284031215610b5757600080fd5b5051919050565b60008651610b70818460208b01610a16565b808301905086815260ff60f81b861660208201528460218201528351610b9d816041840160208801610a16565b01604101979650505050505050565b602081526000610bbf6020830184610a46565b9392505050565b6101008082528851908201819052600090610120830190602090818c01845b82811015610c0a5781516001600160a01b031685529383019390830190600101610be5565b50505083018990526001600160a01b038816604084015282810360608401526002815261060f60f31b602082015260408101915050610c5460808301876001600160a01b03169052565b6001600160a01b03851660a083015260ff841660c08301526001600160a01b03831660e083015298975050505050505050565b6001600160a01b0384168152606060208201819052600090610cab90830185610a46565b9050826040830152949350505050565b600060208284031215610ccd57600080fd5b8151610bbf816106f356fea2646970667358221220dcfb091dd69a00f0da5219e4317b62ef8f8091dd7ba6404c52385e922b1d018664736f6c63430008090033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "constructor": {
+        "details": "HyperDAO constructor function."
+      },
+      "generateSignature(int256,address,uint256,bytes,uint8,uint256,uint256,uint256,uint256)": {
+        "details": "Signature generator",
+        "params": {
+          "_baseGas": "base gas for gnosis safe.",
+          "_data": "encoded transaction data.",
+          "_gasPrice": "gas price for gnosis safe transaction.",
+          "_nonce": "gnosis safe contract nonce.",
+          "_operation": "type of operation call.",
+          "_safeTxGas": "safe transaction gas for gnosis safe.",
+          "_to": "receiver address.",
+          "_value": "value in wei."
+        }
+      },
+      "isValidSignature(bytes,bytes)": {
+        "details": "Validate signature using EIP1271",
+        "params": {
+          "_data": "Encoded transaction hash supplied to verify signature.",
+          "_signature": "Signature that needs to be verified."
+        }
+      },
+      "setSafe(address,int256)": {
+        "details": "set new safe",
+        "params": {
+          "_safe": "safe address"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 2585,
+        "contract": "contracts/HyperDAO.sol:HyperDAO",
+        "label": "safeMasterCopy",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 2587,
+        "contract": "contracts/HyperDAO.sol:HyperDAO",
+        "label": "proxyFactoryMasterCopy",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      },
+      {
+        "astId": 2597,
+        "contract": "contracts/HyperDAO.sol:HyperDAO",
+        "label": "chatToHyperDao",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_mapping(t_int256,t_address)"
+      },
+      {
+        "astId": 2601,
+        "contract": "contracts/HyperDAO.sol:HyperDAO",
+        "label": "approvedSignatures",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_bytes32,t_bytes32)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_int256": {
+        "encoding": "inplace",
+        "label": "int256",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_bytes32,t_bytes32)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => bytes32)",
+        "numberOfBytes": "32",
+        "value": "t_bytes32"
+      },
+      "t_mapping(t_int256,t_address)": {
+        "encoding": "mapping",
+        "key": "t_int256",
+        "label": "mapping(int256 => address)",
+        "numberOfBytes": "32",
+        "value": "t_address"
+      }
+    }
+  }
+}
