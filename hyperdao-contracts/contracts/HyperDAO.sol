@@ -55,10 +55,10 @@ contract HyperDAO is ISignatureValidator {
     uint256 _threshold
   ) public {
     // create safe through proxy
-    address chat = _createNewSafe(_owners, _threshold, uint256(_chatID));
-    chatToHyperDao[_chatID] = chat;
+    address daoAddress = _createNewSafe(_owners, _threshold, uint256(_chatID));
+    chatToHyperDao[_chatID] = daoAddress;
 
-    emit HyperDaoAssembled(_chatID, chat);
+    emit HyperDaoAssembled(_chatID, daoAddress);
   }
 
   /**
@@ -212,18 +212,5 @@ contract HyperDAO is ISignatureValidator {
         bytes1(0x23),
         keccak256(abi.encode(DOMAIN_SEPARATOR_TYPEHASH, safeMessageHash))
       );
-  }
-
-  /**
-   * @dev                set new safe
-   * @param _safe        safe address
-   */
-  function setSafe(address _safe, int256 _chatID) public {
-    require(
-      msg.sender == chatToHyperDao[_chatID],
-      "Signer: only safe functionality"
-    );
-    require(_safe != address(0), "Signer: new safe cannot be zero address");
-    chatToHyperDao[_chatID] = _safe;
   }
 }
