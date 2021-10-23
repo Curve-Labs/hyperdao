@@ -1,8 +1,24 @@
+/**
+ _                              _             
+| |                            | |            
+| |__  _   _ _ __   ___ _ __ __| | __ _  ___  
+| '_ \| | | | '_ \ / _ \ '__/ _` |/ _` |/ _ \ 
+| | | | |_| | |_) |  __/ | | (_| | (_| | (_) |
+|_| |_|\__, | .__/ \___|_|  \__,_|\__,_|\___/ 
+        __/ | |                               
+       |___/|_|                               
+*/
+
 pragma solidity 0.8.9;
 
 import "./interface/ISafe.sol";
 import "@gnosis.pm/safe-contracts/contracts/interfaces/ISignatureValidator.sol";
 import "./interface/IGnosisSafeProxyFactory.sol";
+
+/**
+ * @title HyperDao contract
+ * @dev   Smart contract that enables the creation Gnosis Safe and proposal generation for Hyperdao.
+ */
 
 contract HyperDAO is ISignatureValidator {
   address safeMasterCopy;
@@ -27,44 +43,22 @@ contract HyperDAO is ISignatureValidator {
     proxyFactoryMasterCopy = _proxyFactoryMasterCopy;
   }
 
+  /**
+   * @dev                   AssembleDao
+   * @param _chatID         ID of a Telegram chat.
+   * @param _owners         Owners of the multisig.
+   * @param _threshold      Voting threshold.
+   */
   function assembleDao(
-    int256 chatID,
+    int256 _chatID,
     address[] memory _owners,
     uint256 _threshold
   ) public {
     // create safe through proxy
-    address chat = _createNewSafe(_owners, _threshold, uint256(chatID));
-    chatToHyperDao[chatID] = chat;
+    address chat = _createNewSafe(_owners, _threshold, uint256(_chatID));
+    chatToHyperDao[_chatID] = chat;
 
-    emit HyperDaoAssembled(chatID, chat);
-  }
-
-  // This function need to be implemented in the function above
-  // minimal, to add new owners at the time of creating a new Gnosis Safe
-  function _createNewSafe(
-    address[] memory _owners,
-    uint256 _threshold,
-    uint256 nonce
-  ) internal returns (address) {
-    bytes memory initializer = abi.encodeWithSignature(
-      "setup(address[],uint256,address,bytes,address,address,uint256,address)",
-      _owners,
-      _threshold,
-      address(0),
-      "0x",
-      address(0),
-      address(0),
-      0,
-      address(0)
-    );
-    return
-      address(
-        IGnosisSafeProxyFactory(proxyFactoryMasterCopy).createProxyWithNonce(
-          safeMasterCopy,
-          initializer,
-          nonce
-        )
-      );
+    emit HyperDaoAssembled(_chatID, chat);
   }
 
   /**
@@ -154,6 +148,38 @@ contract HyperDAO is ISignatureValidator {
       }
     }
     return "0x";
+  }
+
+  /**
+   * @dev               Create gnosis safe internal function
+   * @param _owners     Sage owners.
+   * @param _threshold  Voting threshold.
+   * @param nonce       GnosisSafe nonce.
+   */
+  function _createNewSafe(
+    address[] memory _owners,
+    uint256 _threshold,
+    uint256 nonce
+  ) internal returns (address) {
+    bytes memory initializer = abi.encodeWithSignature(
+      "setup(address[],uint256,address,bytes,address,address,uint256,address)",
+      _owners,
+      _threshold,
+      address(0),
+      "0x",
+      address(0),
+      address(0),
+      0,
+      address(0)
+    );
+    return
+      address(
+        IGnosisSafeProxyFactory(proxyFactoryMasterCopy).createProxyWithNonce(
+          safeMasterCopy,
+          initializer,
+          nonce
+        )
+      );
   }
 
   /**
