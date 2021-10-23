@@ -1039,7 +1039,7 @@
       ]
     },
     "SignerV2": {
-      "address": "0xac79dd500060b02a3135e207af95404c65f40b15",
+      "address": "0x7bc5a000F699C683fEdBE1D309F5A669103649e9",
       "abi": [
         {
           "inputs": [
@@ -1118,7 +1118,7 @@
           "inputs": [
             {
               "internalType": "int256",
-              "name": "chatID",
+              "name": "_chatID",
               "type": "int256"
             },
             {
@@ -1242,24 +1242,6 @@
             }
           ],
           "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "inputs": [
-            {
-              "internalType": "address",
-              "name": "_safe",
-              "type": "address"
-            },
-            {
-              "internalType": "int256",
-              "name": "_chatID",
-              "type": "int256"
-            }
-          ],
-          "name": "setSafe",
-          "outputs": [],
-          "stateMutability": "nonpayable",
           "type": "function"
         }
       ]
