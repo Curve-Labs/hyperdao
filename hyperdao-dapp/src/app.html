@@ -1,0 +1,14 @@
+<template>
+  <require from="./navbar/navbar"></require>
+  <banner></banner>
+  <navbar></navbar>
+  <modalscreen on-off.to-view="onOff" message.to-view="modalMessage">
+    <div class="appWrapper">
+      <div class="mainContent">
+        <router-view></router-view>
+      </div>
+      <div class="appFooter">
+      </div>
+    </div>
+  </modalscreen>
+</template>

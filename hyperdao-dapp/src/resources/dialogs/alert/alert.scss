@@ -1,0 +1,30 @@
+body > ux-dialog-container.alert {
+  top: 50%;
+  right: unset;
+  bottom: unset;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  ux-dialog {
+    ux-dialog-body {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      border-top-width: 0;
+      padding: 24px 40px 12px 40px;
+      font-family: Inter;
+      font-size: 16px;
+      line-height: 32px;
+    }
+
+    ux-dialog-footer {
+      border-top-width: 0;
+      padding: 4px 40px 24px 40px;
+      text-align: center;
+      .button1 {
+        &.small {
+          width: 98px;
+        }
+      }
+    }
+  }
+}

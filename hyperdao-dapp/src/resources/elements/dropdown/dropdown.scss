@@ -1,0 +1,78 @@
+@import "styles/styles.scss";
+
+.dropdown {
+  color: $Neutral02;
+  transition: all 300ms;
+  position: relative;
+  .selectedLabel, .menu {
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #403453;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .selectedLabel {
+    display: flex;
+    background: $BG01;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 33px;
+    white-space: nowrap;
+    padding: 6px 10px;
+    .itemContent {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    i {
+      transform: rotateX(0deg);
+      transition: transform 300ms ease-in-out;
+    }
+  }
+
+  z-index: 1;
+  &.show {
+    i {
+      transform: rotateX(-180deg);
+    }
+
+    .menu {
+      opacity: 1;
+      clip-path: circle(250% at 50% 20px);
+    }
+  }
+}
+
+.menu {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-top: 36px;
+  opacity: 1;
+  background: transparent;
+  transition: clip-path 300ms ease-out;
+  clip-path: circle(0 at 50% 20px);
+  border-color: $Secondary02 !important;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+
+  hr {
+    border: none;
+    border-bottom: 1px solid $Border01;
+    background: $BG01;
+    padding: 0px;
+    margin: 0;
+    padding-bottom: 7px;
+  }
+
+  .option {
+    padding: 12px;
+    background: $BG01;
+    transition: all 300ms;
+    &:hover {
+      background: $Border01;
+      color: $Neutral04;
+    }
+    &:last-child {
+      border-radius: 0 0 10px 10px;
+    }
+  }
+}

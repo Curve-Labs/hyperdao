@@ -1,0 +1,118 @@
+@import "styles/colors.scss";
+
+.connectButtonContainer {
+  display: inline-block;
+  padding: 0;
+  border-radius: 0.75rem;
+  border: 1px solid;
+  background-color: #212429;
+  border-color: transparent;
+  z-index: 1000; // stay over modal mask
+  font-family: Inter;
+
+  .connectButton {
+    display: inline-block;
+    padding: 0.6rem 0.9rem;
+    border-radius: 0.75rem;
+    white-space: nowrap;
+    color: $Secondary01-dev;
+    background-color: $BG01;
+    border: $BG05;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      color: $Secondary02-dev;
+    }
+  }
+
+  .connectedButtons {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .ethBalanceContainer {
+      display: inline-block;
+      white-space: nowrap;
+
+      &.ETH {
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  &.connected {
+    background-color: $BG05;
+    border-color: $BG05;
+    padding-left: 14px;
+    padding-right: 1px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    .separator {
+      display: inline-block;
+      margin-left: 0.5em;
+      margin-right: 0.5em;
+      position: relative;
+      bottom: 1px;
+      color: $Secondary02-dev;
+    }
+
+    .connectedButtons {
+      .connectButton {
+        cursor: default;
+        text-align: center;
+        border: 0;
+        color: white;
+        border-color: transparent;
+
+        .pending {
+          .phase {
+            display: inline-block;
+            margin-right: 6px;
+          }
+          i {
+            color: $Secondary01-dev;
+          }
+          &.confirming {
+            cursor: pointer;
+            .phase:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        .etherscanlink a {
+          color: white;
+          text-decoration: none;
+
+          &:hover,
+          &:focus {
+            color: white;
+          }
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1368px) {
+  .connectButtonContainer {
+    &.connected {
+      padding-left: 0;
+      .connectedButtons {
+        .connectButton {
+          margin-left: 0;
+        }
+        .ethBalanceContainer,
+        .separator {
+          display: none;
+        }
+      }
+    }
+  }
+}

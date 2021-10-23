@@ -1,0 +1,30 @@
+{
+  "name": "@primedao/interface",
+  "type": "project:application",
+  "paths": {
+    "root": "src",
+    "resources": "resources",
+    "elements": "resources/elements",
+    "attributes": "resources/attributes",
+    "valueConverters": "resources/value-converters",
+    "bindingBehaviors": "resources/binding-behaviors"
+  },
+  "transpiler": {
+    "id": "typescript",
+    "fileExtension": ".ts"
+  },
+  "build": {
+    "options": {
+      "server": "dev",
+      "extractCss": "prod",
+      "coverage": false
+    }
+  },
+  "platform": {
+    "hmr": true,
+    "open": false,
+    "port": 3333,
+    "host": "localhost",
+    "output": "dist"
+  }
+}

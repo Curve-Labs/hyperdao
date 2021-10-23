@@ -1,0 +1,41 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "pwa-chrome",
+      "request": "launch",
+      "name": "Launch Chrome against localhost",
+      "url": "http://localhost:3333",
+      "webRoot": "${workspaceRoot}/src",
+      // "trace": true,
+      "smartStep": true,
+      "skipFiles": [
+        "${workspaceFolder}/src/node_modules/tslib/*.js"
+      ],
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/*"
+      },
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "pwa-msedge",
+      "request": "launch",
+      "name": "Launch Edge against localhost",
+      // "url": "http://localhost:3333/createdao?chatId=2&chatTitle=Fabi%27s%20Test%20Channel",
+      "url": "http://localhost:3333/transfer?chatId=2&to=0x01&amount=1000000000000000000",
+      "webRoot": "${workspaceRoot}/src",
+      // "trace": true,
+      "smartStep": true,
+      "skipFiles": [
+        "${workspaceFolder}/src/node_modules/tslib/*.js"
+      ],
+      "sourceMapPathOverrides": {
+        "webpack:///./src/*": "${webRoot}/*"
+      },
+      "internalConsoleOptions": "openOnSessionStart"
+    }
+  ]
+}

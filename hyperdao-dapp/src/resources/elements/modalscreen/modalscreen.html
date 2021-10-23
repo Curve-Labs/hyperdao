@@ -1,0 +1,13 @@
+<template>
+  <div class="modalScreenContainer" ref="container">
+    <slot></slot>
+    <div class="modalMask" ref="mask">
+      <div>
+        <div class="modelContent">
+          <i class="fas fa-circle-notch fa-spin"></i>
+          <div class="body">${message}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

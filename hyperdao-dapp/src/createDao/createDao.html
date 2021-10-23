@@ -1,0 +1,33 @@
+<template>
+  <div class="page animated-page au-animate createDao">
+    <div class="heading heading1">Create a DAO for ${chatTitle}</div>
+
+    <div class="form">
+      <div class="body">
+        <label class="safeOwnersLabel" for="safeOwners">Specify any initial DAO Members (voters)</label>
+        <div class="comment safeOwnersComment">You will be automatically added when the DAO is created.</div>
+        <div if.bind="initialOwners.length" class="safeOwners">
+          <template repeat.for="owner of initialOwners">
+            <div class="memberAddress">
+              <etherscanlink address.to-view="owner" text.bind="owner"></etherscanlink>
+            </div>
+            <div class="deleteOwner" title="Delete this member" click.delegate="deleteOwner($index)">
+              <i class="far fa-trash-alt"></i>
+            </div>
+          </template>
+        </div>
+        <div class="newMemberInput">
+          <input class="addressInput" value.bind="newOwner" placeholder="An ethereum address" />
+          <div class="addOwner" click.delegate="addOwner()"><a>+ Add</a></div>
+        </div>
+      </div>
+      <div class="thresholdInputs">
+        <label class="thresholdLabel">Threshold of winning votes</label>
+        <div class="comment thresholdComment">Number of For votes that result in a win.</div>
+        <input class="thresholdInput" value.bind="threshold | number" placeholder="A number" />
+      </div>
+      <button class="button1" show.bind="ethereumService.defaultAccountAddress" click.delegate="createDAO()" disabled.bind="!isValid">Create DAO</button>
+      <button class="button1" show.bind="!ethereumService.defaultAccountAddress" click.delegate="connect()">Connect to your wallet</button>
+    </div>
+  </div>
+</template>

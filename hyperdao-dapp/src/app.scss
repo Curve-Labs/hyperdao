@@ -1,0 +1,29 @@
+@import "styles/colors.scss";
+// this is just to preload to avoid css jitter when opening a dialog
+@import "resources/dialogs/dialogs.scss";
+.appWrapper {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 118px 100fr 1fr;
+  grid-template-areas:
+    "."
+    "mainContent"
+    "footer";
+  height: 100vh;
+
+  .mainContent {
+    grid-area: mainContent;
+    color: $White;
+    padding-bottom: 52px;
+  }
+
+  .appFooter {
+    grid-area: footer;
+  }
+}
+
+@media screen and (max-width: 1072px) {
+  .appWrapper {
+    grid-template-rows: 128px 100fr 1fr;
+  }
+}

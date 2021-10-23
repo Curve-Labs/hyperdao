@@ -1,0 +1,15 @@
+<template>
+  <div ref="dropdown" class="dropdown">
+    <div ref="title" class="selectedLabel">
+      <div class="itemContent" innerhtml="${titleText ? titleText : placeholder}"></div>
+      <div class="el-icon-arrow"><i class="fa fa-angle-down"></i></div>
+    </div>
+    <div ref="menu" class="menu" mutation-observer.call="menuChanged()">
+      <hr ref="divider" />
+      <!-- array of divs each containing whatever you want to be displayed in the dropdown menu -->
+      <div ref="options" class="options">
+        <slot></slot>
+      </div>
+    </div>
+  </div>
+</template>

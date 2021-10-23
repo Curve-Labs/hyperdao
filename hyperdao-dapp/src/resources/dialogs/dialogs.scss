@@ -1,0 +1,134 @@
+@import "styles/styles.scss";
+
+body > ux-dialog-overlay.active {
+  opacity: 0.75;
+}
+
+/**
+ * specify "body" to force this css to take precedence over Aurelia's
+ **/
+body > ux-dialog-container {
+  overflow: hidden;
+  top: 10vh;
+  right: 10vw;
+  bottom: 10vh;
+  left: 10vw;
+
+  background: linear-gradient(to bottom, $Primary01 0%, $Secondary02 100%);
+  padding-left: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 4px;
+  border-radius: 6px;
+
+  > div {
+    margin: 0 !important;
+    padding: 0;
+    height: 100%;
+    > div {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  ux-dialog {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    color: $White;
+    min-width: 160px;
+    border: none;
+    background-color: transparent;
+
+    ux-dialog-header,
+    ux-dialog-body,
+    ux-dialog-footer {
+      background-color: $BG02;
+    }
+
+    ux-dialog-header {
+      border: none;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      .heading {
+        @include standardTextGradient;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+    }
+
+    ux-dialog-body {
+      border-top: 1px solid $White;
+      overflow: auto;
+      flex-grow: 2;
+
+      &.loading {
+        text-align: center;
+        padding-top: 32px;
+        i {
+          color: $Secondary03-dev;
+          font-size: 28px;
+        }
+      }
+    }
+
+    ux-dialog-footer {
+      padding-top: 8px;
+      border-top: 1px solid $White;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      padding-right: 32px;
+    }
+
+    &.disclaimer {
+      .checkbox {
+        margin-right: 10px;
+      }
+      .bodyContainer {
+        white-space: pre-wrap;
+        word-break: break-word;
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+body > ux-dialog-overlay {
+  background-color: $BG01;
+}
+
+@media screen and (max-width: 680px) {
+  body > ux-dialog-container {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    ux-dialog.dialog {
+      min-width: 0;
+
+      ux-dialog-header {
+        .heading {
+          white-space: normal;
+          text-align: center;
+          line-height: 44px;
+        }
+      }
+
+      ux-dialog-body {
+        border-radius: 0;
+        padding: 10px;
+      }
+
+      ux-dialog-footer {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  }
+}

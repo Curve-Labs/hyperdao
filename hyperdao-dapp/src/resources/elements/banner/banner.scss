@@ -1,0 +1,125 @@
+@import "styles/colors.scss";
+
+.bannerContainer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  max-width: 95vw;
+  // max-height: 43px;
+  margin: auto;
+  right: 0;
+  left: 0;
+  z-index: 10001; // stay over modal mask
+  text-align: center;
+  pointer-events: none;
+}
+
+.bannerContainer .body {
+  display: flex;
+  max-width: 100%;
+  padding-top: 0.6rem;
+  padding-right: 1.25rem;
+  padding-bottom: 0.6rem;
+  padding-left: 1.25rem;
+  border-radius: 0px 0px 10px 10px;
+  -moz-border-radius: 0px 0px 10px 10px;
+  -webkit-border-radius: 0px 0px 10px 10px;
+  pointer-events: auto;
+
+  .message {
+    overflow: hidden;
+    // white-space: nowrap;
+    margin-right: 12px;
+  }
+
+  button.close {
+    flex-shrink: 2;
+    color: $White;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 0;
+    outline: none;
+  }
+}
+
+.bannerContainer.warning .body {
+  color: $Shade01;
+  background-color: $BG02;
+  border-color: $Border01;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.bannerContainer.failure .body {
+  color: $AlertRed;
+  background-color: $BG02;
+  border-color: $Border01;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+}
+
+.bannerContainer.info .body {
+  color: $White;
+  background-color: $Secondary02-dev;
+}
+
+.bannerContainer.info .body a {
+  margin-left: 0.5rem;
+  color: $White;
+  text-transform: uppercase;
+}
+
+.bannerContainer.info .body .copy-to-clip-button {
+  margin-left: 0.5rem;
+  color: $Shade02;
+}
+
+// .bannerContainer.info button.close {
+//   background-color: $color-green;
+// }
+
+// .bannerContainer button.close span {
+//   color: $White;
+// }
+
+// .bannerContainer.warning button.close {
+//   background-color: $color-orange;
+// }
+
+// .bannerContainer.warning button.close span {
+//   color: $color-darkblue;
+// }
+
+.bannerContainer.au-enter-active {
+  animation: slideDown 1s;
+}
+
+.bannerContainer.au-leave-active {
+  animation: slideUp 0.6s;
+}
+
+.bannerContainer.au-stagger {
+  animation-delay: 50ms;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
