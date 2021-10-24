@@ -55,61 +55,63 @@ contract HyperDAO is ISignatureValidator {
     uint256 _threshold
   ) public {
     // create safe through proxy
-    address daoAddress = _createNewSafe(_owners, _threshold, uint256(_chatID));
-    chatToHyperDao[_chatID] = daoAddress;
+    address chat = _createNewSafe(_owners, _threshold, uint256(_chatID));
+    chatToHyperDao[_chatID] = chat;
 
-    emit HyperDaoAssembled(_chatID, daoAddress);
+    emit HyperDaoAssembled(_chatID, chat);
   }
 
   /**
-   * @dev                   Signature generator
-   * @param _to             receiver address.
-   * @param _value          value in wei.
-   * @param _data           encoded transaction data.
-   * @param _operation      type of operation call.
-   * @param _safeTxGas      safe transaction gas for gnosis safe.
-   * @param _baseGas        base gas for gnosis safe.
-   * @param _gasPrice       gas price for gnosis safe transaction.
-   * @param _nonce          gnosis safe contract nonce.
+   * @dev                     Signature generator
+   * @param _to               receiver address.
+   * @param _transactionHash  transaction hash.
+   * @param _data             encoded transaction data.
+   * @param _operation        type of operation call.
+   * @param _safeTxGas        safe transaction gas for gnosis safe.
+   * @param _baseGas          base gas for gnosis safe.
+   * @param _gasPrice         gas price for gnosis safe transaction.
+   * @param _nonce            gnosis safe contract nonce.
    */
   function generateSignature(
     int256 _chatID,
     address _to,
-    uint256 _value,
+    bytes32 _transactionHash,
     bytes calldata _data,
     Enum.Operation _operation,
     uint256 _safeTxGas,
     uint256 _baseGas,
     uint256 _gasPrice,
+    address[] memory _gasTokenRefundReceiver,
     uint256 _nonce
   ) external returns (bytes memory signature, bytes32 hash) {
     // check if transaction parameters are correct
     address currentSafe = chatToHyperDao[_chatID];
 
-    // get contractTransactionHash from gnosis safe
-    hash = Safe(currentSafe).getTransactionHash(
-      _to,
-      0,
-      _data,
-      _operation,
-      _safeTxGas,
-      _baseGas,
-      _gasPrice,
-      address(0),
-      address(0),
-      _nonce
-    );
+  if (_transactionHash == 0) {
+      // get contractTransactionHash from gnosis safe
+      hash = Safe(currentSafe).getTransactionHash(
+        _to,
+        0,
+        _data,
+        _operation,
+        _safeTxGas,
+        _baseGas,
+        _gasPrice,
+        _gasTokenRefundReceiver[0],
+        _gasTokenRefundReceiver[1],
+        _nonce
+      );
+  }
+  else {
+    hash = _transactionHash;
+  }
 
     bytes memory paddedAddress = bytes.concat(
       bytes12(0),
       bytes20(address(this))
     );
     bytes memory messageHash = _encodeMessageHash(hash);
-    // check if transaction is not signed before
-    require(
-      approvedSignatures[hash] != keccak256(messageHash),
-      "Signer: transaction already signed"
-    );
+
 
     // generate signature and add it to approvedSignatures mapping
     signature = bytes.concat(
@@ -212,5 +214,18 @@ contract HyperDAO is ISignatureValidator {
         bytes1(0x23),
         keccak256(abi.encode(DOMAIN_SEPARATOR_TYPEHASH, safeMessageHash))
       );
+  }
+
+  /**
+   * @dev                set new safe
+   * @param _safe        safe address
+   */
+  function setSafe(address _safe, int256 _chatID) public {
+    require(
+      msg.sender == chatToHyperDao[_chatID],
+      "Signer: only safe functionality"
+    );
+    require(_safe != address(0), "Signer: new safe cannot be zero address");
+    chatToHyperDao[_chatID] = _safe;
   }
 }
