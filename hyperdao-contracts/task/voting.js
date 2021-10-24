@@ -9,6 +9,15 @@ const { addConfirmation, getTransaction } = api(safeAddress, networkName);
 
 task("doIt", "do some stuff").setAction(async (_, { ethers }) => {
   const { root } = await ethers.getNamedSigners();
+
+  const label = "Signer";
+  const totp = Math.floor(Math.floor(Date.now() / 1000) / 3600);
+
+  // throws error
+  const signature = await root.signMessage("lol");
+  console.log(signature);
+  // so much sad :(
+
   getTransaction(safeTxHash)
     .then((result) => {
       const {
@@ -27,21 +36,3 @@ task("doIt", "do some stuff").setAction(async (_, { ethers }) => {
     .then((r) => console.log(r))
     .catch((e) => console.log(e));
 });
-
-getTransaction(safeTxHash)
-  .then((result) => {
-    const {
-      data: { transactionHash },
-    } = result;
-
-    // HERE WE WOULD SIGN THE TRANSACTION
-    const hash = "0x69e35a1b8e0ff37ca70461ca7caff4";
-
-    const payload = {
-      signature: hash,
-    };
-
-    return addConfirmation(payload, safeTxHash);
-  })
-  .then((r) => console.log(r))
-  .catch((e) => console.log(e));
