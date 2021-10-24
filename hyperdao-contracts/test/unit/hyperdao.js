@@ -1,6 +1,5 @@
 const { expect } = require("chai");
 const { ethers, deployments } = require("hardhat");
-const { utils, BigNumber } = require("ethers");
 
 const getContractInstance = async (factoryName, address, args) => {
   const Factory = await ethers.getContractFactory(factoryName, address);
@@ -10,7 +9,7 @@ const getContractInstance = async (factoryName, address, args) => {
 
 describe("Contract: HyperDao", async () => {
   let hyperDaoFactoryFactory, hyperDaoInstance, params, safeData, ownersArray;
-  let root, owner1, owner2, owner3;
+  let root, owner1, owner2, owner3, tokenInstances;
   let gnosisSafeInstance, gnosisSafeProxyInstance, gnosisSafeContractFactory;
 
   const CHANNEL_ID = -1001741603151;
@@ -19,6 +18,13 @@ describe("Contract: HyperDao", async () => {
     before("setup", async () => {
       const signers = await ethers.getSigners();
       [root, owner1, owner2, owner3] = signers;
+
+      const erc20Factory = await ethers.getContractFactory(
+        "ERC20Mock",
+        root.address
+      );
+
+      tokenInstances = await erc20Factory.deploy("Test", "TT");
 
       gnosisSafeInstance = await getContractInstance(
         "GnosisSafe",
@@ -51,9 +57,22 @@ describe("Contract: HyperDao", async () => {
         safeAddress
       );
 
-      expect(await hyperGnosisSafe.isOwner(owner1.address));
-      expect(await hyperGnosisSafe.isOwner(owner2.address));
-      expect(await hyperGnosisSafe.isOwner(owner3.address));
+      expect(await hyperGnosisSafe.isOwner(owner1.address)).to.be.true;
+      expect(await hyperGnosisSafe.isOwner(owner2.address)).to.be.true;
+      expect(await hyperGnosisSafe.isOwner(owner3.address)).to.be.true;
     });
+    it("transfeers funds to safe", async () => {
+      await tokenInstances.connect(root).transfer(safeAddress, 10000);
+      expect(await tokenInstances.balanceOf(safeAddress)).to.equal(10000);
+    });
+    // it("sends proposal to safe", async () => {
+    //   expect(await tokenInstances.balanceOf(owner3.address)).to.equal(0);
+    //   const { data, to } = await tokenInstances
+    //     .connect(safeAddress)
+    //     .populateTransaction.transfer(owner3.address, 5000);
+    //   const gasEstimate = await tokenInstances
+    //     .connect(safeAddress)
+    //     .populateTransaction.transfer(owner3.address, 5000);
+    // });
   });
 });

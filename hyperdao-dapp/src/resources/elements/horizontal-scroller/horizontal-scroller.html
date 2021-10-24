@@ -1,0 +1,10 @@
+<template>
+  <div class="scrollerContainer">
+    <div ref="scroller" scrollleft.bind="scrollleft" class="scroller">
+      <!-- must be a set of divs -->
+      <slot></slot>
+    </div>
+    <div class="rightButton ${atEnd ? 'hide' : '' }" click.delegate="right()">&gt;</div>
+    <div class="leftButton  ${atBeginning ? 'hide' : '' }" click.delegate="left()">&lt;</div>
+  </div>
+</template>

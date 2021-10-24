@@ -1,0 +1,127 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2019,
+    "sourceType": "module",
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "."
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "max-len": "off",
+    "sort-imports": "off",
+    "require-atomic-updates": "warn",
+    "no-console": "warn",
+    "@typescript-eslint/ban-ts-comment": [
+      "warn",
+      {
+        "ts-ignore": false
+      }
+    ],
+    "@typescript-eslint/no-inferrable-types": [
+      "error",
+      {
+        "ignoreParameters": false,
+        "ignoreProperties": false
+      }
+    ],
+    "keyword-spacing": "error",
+    "arrow-spacing": "error",
+    "key-spacing": [
+      "error",
+      {
+        "mode": "minimum"
+      }
+    ],
+    "semi-spacing": "error",
+    "comma-spacing": "error",
+    "no-multi-spaces": "error",
+    "no-trailing-spaces": "error",
+    "no-useless-escape": "error",
+    "indent": "off", // to not interfere with @typescript just below
+    "@typescript-eslint/indent": [
+      "error",
+      2
+    ],
+    "@typescript-eslint/prefer-for-of": "error",
+    "@typescript-eslint/consistent-type-assertions": [
+      "error",
+      {
+        "assertionStyle": "as",
+        "objectLiteralTypeAssertions": "allow-as-parameter"
+      }
+    ],
+    "no-empty-function": "off", // to not interfere with @typescript just below
+    "@typescript-eslint/no-empty-function": "error",
+    "@typescript-eslint/no-empty-interface": [
+      "error",
+      {
+        "allowSingleExtends": true
+      }
+    ],
+    "one-var": [
+      "error",
+      "never"
+    ],
+    "no-var": "error",
+    "no-bitwise": "error",
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "interface",
+        "format": [
+          "PascalCase"
+        ],
+        "prefix": [
+          "I"
+        ]
+      }
+    ],
+    "prefer-const": "error",
+    "@typescript-eslint/no-unused-expressions": "error",
+    "no-unused-vars": "off", // to not interfere with @typescript just below
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "[_].*"
+      }
+    ],
+    "quotes": [
+      "error",
+      "double"
+    ],
+    "no-prototype-builtins": 0,
+    "comma-dangle": [
+      "error",
+      "always-multiline"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "eol-last": "error",
+    "eqeqeq": "error",
+    "getter-return": 0,
+    "linebreak-style": [
+      "error",
+      "unix"
+    ]
+  }
+}

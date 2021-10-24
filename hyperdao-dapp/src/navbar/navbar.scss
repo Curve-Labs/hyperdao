@@ -1,0 +1,89 @@
+@import "styles/styles.scss";
+
+.navbar-container {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  grid-template-columns: $BodyPaddingLeftRight auto auto;
+  grid-template-areas: "logo networkFeedback connect";
+  background-color: $BG01;
+
+  .logo {
+    grid-area: logo;
+    padding-left: 20px;
+
+    img {
+      height: 32px;
+    }
+  }
+
+  .networkFeedback {
+    grid-area: networkFeedback;
+    font-family: Inter;
+    color: $White;
+    text-align: right;
+    .testnet {
+      color: $Shade01;
+    }
+  }
+
+  /**
+     * header connectButton
+     */
+  .headerConnectButton {
+    grid-area: connect;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: right;
+  }
+}
+
+@media screen and (max-width: 1072px) {
+  .navbar-container {
+    grid-template-columns: calc(#{$BodyPaddingLeftRight} + 50px) 1fr auto;
+    grid-template-areas: "logo products connect" "subPages subPages subPages";
+
+    .products {
+      .container {
+        justify-content: center;
+        column-gap: 2px;
+        .item {
+          grid-template-columns: auto;
+
+          .text {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .productSubpages {
+      .container {
+        padding-left: 0;
+        justify-content: center;
+      }
+    }
+    .networkFeedback {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .navbar-container {
+    .products {
+      grid-area: products;
+
+      .container {
+        column-gap: 0;
+      }
+    }
+  }
+}

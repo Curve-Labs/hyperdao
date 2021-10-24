@@ -1,0 +1,7 @@
+/**
+  This file is for inclusion in index.ejs, before we have access to the scss, which currently
+  we only compile via typescript import and resulting webpack bundling.
+*/
+
+body {
+}

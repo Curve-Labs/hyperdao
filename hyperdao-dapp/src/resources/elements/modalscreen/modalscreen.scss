@@ -1,0 +1,27 @@
+@import "styles/colors.scss";
+.modalScreenContainer {
+  height: auto;
+  .modalMask {
+    z-index: 997;
+    position: absolute;
+    left: 0;
+    min-width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none; // set to flex by the view model
+    justify-content: center;
+    align-items: center;
+
+    .modelContent {
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      i {
+        font-size: 38px;
+        color: $Secondary03-dev;
+        margin-bottom: 16px;
+      }
+    }
+  }
+}

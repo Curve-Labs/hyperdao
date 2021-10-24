@@ -1,0 +1,14 @@
+<template>
+  <div class="etherscanlink ${css}">
+    <a ref="hotElement" class="text" if.to-view="networkExplorerUri" href.to-view="networkExplorerUri"
+      target='${internal ? "" : "_blank"}' rel="noopener noreferrer">
+      ${text || address}
+    </a>
+
+    <div else ref="coldElement" class="text">
+      ${text || address}
+    </div>
+
+    <copy-to-clipboard-button if.to-view="!hideClipboardButton" text-to-copy.to-view="address" message.to-view="copyMessage"></copy-to-clipboard-button>
+  </div>
+</template>

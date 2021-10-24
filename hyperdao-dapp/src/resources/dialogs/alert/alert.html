@@ -1,0 +1,14 @@
+<template>
+  <ux-dialog class="dialog alert">
+    <!-- <ux-dialog-header>
+      <img src="/primeLaunchLogo.svg" />
+    </ux-dialog-header> -->
+    <ux-dialog-body with.bind="model">
+      <div class="body">${message}</div>
+    </ux-dialog-body>
+    <ux-dialog-footer>
+      <button if.bind="showOkButton" class="button1 small" ref="okButton" click.trigger="controller.ok()">Ok</button>
+      <button if.bind="showCancelButton" class="button1 small" ref="cancelButton" click.trigger="controller.cancel()">Cancel</button>
+    </ux-dialog-footer>
+  </ux-dialog>
+</template>

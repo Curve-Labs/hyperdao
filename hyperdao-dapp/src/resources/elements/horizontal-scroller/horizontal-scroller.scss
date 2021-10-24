@@ -1,0 +1,83 @@
+@import "styles/colors.scss";
+
+.scrollerContainer {
+  display: inline-grid; // to make this have 100% width while still supporting scrolling
+  position: relative; // for positioning the scroll buttons
+
+  .scroller {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > div {
+      flex: 0 0 auto;
+    }
+  }
+
+  .leftButton,
+  .rightButton {
+    background: $Gradient01;
+    opacity: 0.8;
+    border-radius: 26px;
+    cursor: pointer;
+    color: $White;
+    font-size: 22.5px;
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+
+    &.hide {
+      display: none;
+    }
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .leftButton:hover,
+  .rightButton:hover {
+    background-color: $Secondary03-dev;
+  }
+
+  .leftButton {
+    right: -16px;
+  }
+
+  .rightButton {
+    left: -16px;
+  }
+}
+
+@media screen and (max-width: 1072px) {
+  .scrollerContainer {
+    display: block;
+    position: unset;
+    text-align: center;
+
+    .scroller {
+      flex-direction: column;
+
+      > div:not(:last-of-type) {
+        margin-bottom: 24px;
+      }
+    }
+
+    .rightButton,
+    .leftButton {
+      display: none;
+    }
+  }
+}

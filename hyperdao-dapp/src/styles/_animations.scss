@@ -1,0 +1,33 @@
+.animated-page.au-enter {
+  opacity: 0 !important;
+}
+
+.animated-page.au-enter-active {
+  animation: fadeIn 0.8s;
+}
+
+// .animated-page.au-leave-active {
+// animation: fadeOut 2s;
+// }
+
+// .animated-page.au-stagger {
+// animation-delay: 50ms;
+// }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

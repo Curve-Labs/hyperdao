@@ -1,0 +1,296 @@
+@import "./animations";
+@import "./colors";
+@import "tippy.js/dist/tippy.css"; // TODO: use CDN?
+
+@mixin standardTextGradient {
+  background-image: $Gradient01;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin standardTextGradientReversed {
+  background-image: $Gradient08;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin tokenIcon {
+  width: 19px;
+  border-radius: 9px;
+}
+
+$BodyPaddingLeftRight: 160px;
+$BodyPaddingLeftRightMobile: 20px;
+
+html {
+  body {
+    font-size: 16px;
+    margin: 0;
+    background-color: $BG01;
+    color: $White;
+    font-family: Aeonik;
+    min-height: 100vh;
+    padding-left: $BodyPaddingLeftRight;
+    padding-right: $BodyPaddingLeftRight;
+
+    input {
+      font-family: Aeonik;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 33px;
+      border: 1px solid $Neutral02;
+      background: $BG01;
+      color: $White;
+      border-radius: 6px;
+      outline: none;
+      padding: 0 12px;
+
+      &::placeholder {
+        color: $Neutral03;
+        mix-blend-mode: normal;
+        opacity: 0.43;
+      }
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+      -webkit-text-fill-color: $White;
+      transition: background-color 100s ease-in-out 0s;
+      -webkit-box-shadow: 0 0 0px 3.7em $BG01 inset;
+      box-shadow: 0 0 0px 3.7em $BG01 inset;
+      caret-color: $White;
+    }
+
+    // when hovering over dropdown items
+    input:-webkit-autofill::first-line {
+      font-size: 16px;
+    }
+
+    textarea {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 23px;
+      border-radius: 10px;
+      background-color: $BG01;
+      border: 1px solid $Neutral02;
+      color: $White;
+      outline: none;
+      padding: 12px 12px;
+
+      &::placeholder {
+        color: $Neutral03;
+        mix-blend-mode: normal;
+        opacity: 0.43;
+      }
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus {
+      -webkit-text-fill-color: $Neutral02;
+      transition: background-color 100s ease-in-out 0s;
+      -webkit-box-shadow: 0 0 0px 3.7em $BG01 inset;
+      box-shadow: 0 0 0px 3.7em $BG01 inset;
+    }
+
+    .clearInput {
+      background-color: transparent;
+      color: $BG01;
+
+      &::placeholder {
+        color: $BG01;
+      }
+    }
+
+    hr {
+      height: 1px;
+      border: none;
+      background-color: $Neutral02;
+    }
+
+    a {
+      color: $White;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .heading {
+      font-family: Aeonik;
+      font-style: normal;
+      font-weight: 600;
+      width: fit-content; // so gradients look right
+
+      &.heading0 {
+        font-size: 64px;
+        line-height: 65px;
+        margin-bottom: 24px;
+        @include standardTextGradient;
+      }
+      &.heading1 {
+        font-size: 48px;
+        line-height: 60px;
+        margin-bottom: 24px;
+        @include standardTextGradient;
+      }
+      &.heading2 {
+        font-size: 36px;
+        line-height: 65px;
+        margin-bottom: 8px;
+        @include standardTextGradient;
+      }
+      &.heading3 {
+        font-size: 24px;
+        line-height: 29px;
+        margin-bottom: 6px;
+        color: $Secondary02;
+      }
+      &.heading4 {
+        font-size: 14px;
+        color: $Secondary02;
+      }
+    }
+
+    .subtext {
+      color: $Neutral02;
+      font-size: 13px;
+    }
+
+    .button1,
+    .button2 {
+      display: inline-block;
+      border-radius: 50px;
+      border: none;
+      margin: 5px 0 5px 5px;
+      padding: 14px 28px;
+      outline: none;
+
+      font-family: Inter;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: center;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+
+      color: $White;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: none;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.2;
+      }
+
+      &.small {
+        padding: 8px 17px;
+        font-size: 11px;
+      }
+    }
+
+    .button1 {
+      background: $Gradient01;
+    }
+
+    .button2 {
+      @include standardTextGradient;
+      border: solid 1px $Secondary02;
+
+      &:hover {
+        -webkit-text-fill-color: $Secondary04;
+      }
+    }
+
+    .ellipses {
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  etherscanlink {
+    white-space: nowrap;
+    display: inline-block;
+
+    .etherscanlink .text {
+      margin-right: 4px;
+    }
+  }
+
+  .smallEtherScanLink {
+    display: inline-block;
+    vertical-align: middle;
+    width: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .copy-to-clip-button,
+  .copy-to-clip-button:focus {
+    color: $White;
+  }
+
+  .copy-to-clip-button:hover {
+    color: $Neutral02;
+  }
+
+  #WEB3_CONNECT_MODAL_ID {
+    div:first-of-type {
+      z-index: 10002; // stay over modal mask
+    }
+  }
+
+  .tippy-content {
+    text-align: center;
+  }
+
+  .allCaps {
+    text-transform: uppercase;
+  }
+
+  .noCaps {
+    text-transform: lowercase;
+  }
+
+  .initialCaps {
+    text-transform: capitalize;
+  }
+}
+
+@media screen and (max-width: 1072px) {
+  html {
+    body {
+      padding-left: $BodyPaddingLeftRightMobile;
+      padding-right: $BodyPaddingLeftRightMobile;
+
+      .heading {
+        &.heading0 {
+          font-size: 48px;
+          line-height: 44px;
+          margin-bottom: 18px;
+        }
+        &.heading1 {
+          font-size: 44px;
+          line-height: 40px;
+          margin-bottom: 22px;
+        }
+      }
+    }
+  }
+}

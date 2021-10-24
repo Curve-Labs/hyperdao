@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>HyperDAO</title>
+  <meta http-equiv="Content-Language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1"
+    content="A decentralized autonomous organization and ecosystem for the adoption of decentralized, open finance.">
+  <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="./base.css">
+  <script src="https://kit.fontawesome.com/bf98881e0a.js" crossorigin="anonymous"></script>
+  <style>
+    @font-face {
+      font-family: "Inter";
+      src: url("./Inter-Light.ttf");
+      font-weight: 300;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url("./Inter-Regular.ttf");
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url("./Inter-Medium.ttf");
+      font-weight: 500;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url("./Inter-SemiBold.ttf");
+      font-weight: 600;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url("./Inter-Bold.ttf");
+      font-weight: 700;
+    }
+
+    @font-face {
+      font-family: "Inter";
+      src: url("./Inter-ExtraBold.ttf");
+      font-weight: 800;
+    }
+
+    @font-face {
+      font-family: "Aeonik";
+      src: url("./Aeonik-Regular.otf");
+    }
+
+    @font-face {
+      font-family: "Aeonik";
+      src: url("./Aeonik-Bold.otf");
+      font-weight: 600;
+    }
+
+    .page.home>.banner {
+      background: url("/210125_CURVE_PD_APP_BANNER_V01-1.jpg") no-repeat center center;
+      background-size: cover;
+    }
+  </style>
+
+  <script>
+    (function () {
+      const { pathname, hostname, protocol } = window.location
+
+      // redirect to https on non-localhost
+      if (protocol === 'http:' && hostname !== 'localhost' && hostname.indexOf('ipfs.localhost') === -1) {
+        window.location.protocol = 'https'
+        return
+      }
+
+      //      const ipfsMatch = /.*\/Qm\w{44}/.exec(pathname)
+      //      changeBaseHref(ipfsMatch)
+      //
+      //      window.IS_IPFS = !!ipfsMatch || hostname.endsWith('.eth.link')
+      //
+      //      function changeBaseHref(match) {
+      //        if (match && match.length > 0) {
+      //          let baseHref = match[0]
+      //          if (!baseHref.endsWith('/')) baseHref += '/'
+      //
+      //          const base = document.querySelector('base')
+      //          base.href = baseHref
+      //        }
+      //      }
+      //
+    })();
+  </script>
+  <!-- imported CSS are concatenated and added automatically -->
+</head>
+
+<body aurelia-app="main">
+</body>
+
+</html>

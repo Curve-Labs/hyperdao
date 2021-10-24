@@ -1,0 +1,21 @@
+@import "styles/colors.scss";
+.circledNumber {
+  border-radius: 50%;
+  text-align: center;
+  background-color: $Neutral02;
+  min-width: 41.6px;
+  height: 40px;
+  &.active {
+    background-color: $Secondary02;
+  }
+  > .value {
+    color: $BG01;
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+}

@@ -6,6 +6,7 @@ require("hardhat-deploy-ethers");
 require("@nomiclabs/hardhat-etherscan");
 
 const { INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY, PK } = process.env;
+const DEFAULT_MNEMONIC = "hello darkness my old friend";
 
 const sharedNetworkConfig = {};
 if (PK) {
@@ -15,6 +16,8 @@ if (PK) {
     mnemonic: MNEMONIC || DEFAULT_MNEMONIC,
   };
 }
+
+// require("./tasks/signature_test");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
