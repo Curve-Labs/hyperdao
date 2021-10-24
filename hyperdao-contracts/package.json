@@ -1,8 +1,9 @@
 {
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
-    "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@nomiclabs/hardhat-etherscan": "^2.1.4",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "@nomiclabs/hardhat-web3": "^2.0.0",
     "chai": "^4.3.4",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
@@ -21,6 +22,7 @@
     "openzeppelin-solidity": "^4.1.0",
     "prettier": "^2.3.2",
     "prettier-plugin-solidity": "^1.0.0-beta.17",
-    "solhint-plugin-prettier": "^0.0.5"
+    "solhint-plugin-prettier": "^0.0.5",
+    "web3": "^1.6.0"
   }
 }

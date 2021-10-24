@@ -4,6 +4,7 @@ require("@nomiclabs/hardhat-waffle");
 require("hardhat-deploy");
 require("hardhat-deploy-ethers");
 require("@nomiclabs/hardhat-etherscan");
+require("@nomiclabs/hardhat-web3");
 
 const { INFURA_KEY, MNEMONIC, ETHERSCAN_API_KEY, PK } = process.env;
 const DEFAULT_MNEMONIC = "hello darkness my old friend";
@@ -17,7 +18,7 @@ if (PK) {
   };
 }
 
-// require("./tasks/signature_test");
+require("./tasks/hyperDaoManagment");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -69,5 +70,10 @@ module.exports = {
   },
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
+  },
+  namedAccounts: {
+    root: 0,
+    prime: 1,
+    beneficiary: 2,
   },
 };
