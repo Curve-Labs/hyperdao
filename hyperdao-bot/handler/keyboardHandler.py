@@ -8,9 +8,8 @@ from handler.reserve import userState
 import requests
 import json
 
-hyper_ABI = [{"inputs":[{"internalType":"address","name":"_safeMasterCopy","type":"address"},{"internalType":"address","name":"_proxyFactoryMasterCopy","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":"false","inputs":[{"indexed":"true","internalType":"int256","name":"chatID","type":"int256"},{"indexed":"true","internalType":"address","name":"safe","type":"address"}],"name":"HyperDaoAssembled","type":"event"},{"anonymous":"false","inputs":[{"indexed":"false","internalType":"bytes","name":"signature","type":"bytes"},{"indexed":"true","internalType":"bytes32","name":"hash","type":"bytes32"}],"name":"SignatureCreated","type":"event"},{"inputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"name":"approvedSignatures","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"int256","name":"chatID","type":"int256"},{"internalType":"address[]","name":"_owners","type":"address[]"},{"internalType":"uint256","name":"_threshold","type":"uint256"}],"name":"assembleDao","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"int256","name":"","type":"int256"}],"name":"chatToHyperDao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"int256","name":"_chatID","type":"int256"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"},{"internalType":"bytes","name":"_data","type":"bytes"},{"internalType":"enum Enum.Operation","name":"_operation","type":"uint8"},{"internalType":"uint256","name":"_safeTxGas","type":"uint256"},{"internalType":"uint256","name":"_baseGas","type":"uint256"},{"internalType":"uint256","name":"_gasPrice","type":"uint256"},{"internalType":"uint256","name":"_nonce","type":"uint256"}],"name":"generateSignature","outputs":[{"internalType":"bytes","name":"signature","type":"bytes"},{"internalType":"bytes32","name":"hash","type":"bytes32"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes","name":"_data","type":"bytes"},{"internalType":"bytes","name":"_signature","type":"bytes"}],"name":"isValidSignature","outputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_safe","type":"address"},{"internalType":"int256","name":"_chatID","type":"int256"}],"name":"setSafe","outputs":[],"stateMutability":"nonpayable","type":"function"}]
-# hyper_bytecode =
-hyper_address = '0xAc79dD500060b02A3135E207aF95404c65f40b15'
+hyper_ABI = [{"inputs":[{"internalType":"address","name":"_safeMasterCopy","type":"address"},{"internalType":"address","name":"_proxyFactoryMasterCopy","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":"false","inputs":[{"indexed":"true","internalType":"int256","name":"chatID","type":"int256"},{"indexed":"true","internalType":"address","name":"safe","type":"address"}],"name":"HyperDaoAssembled","type":"event"},{"anonymous":"false","inputs":[{"indexed":"false","internalType":"bytes","name":"signature","type":"bytes"},{"indexed":"true","internalType":"bytes32","name":"hash","type":"bytes32"}],"name":"SignatureCreated","type":"event"},{"inputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"name":"approvedSignatures","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"int256","name":"_chatID","type":"int256"},{"internalType":"address[]","name":"_owners","type":"address[]"},{"internalType":"uint256","name":"_threshold","type":"uint256"}],"name":"assembleDao","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"int256","name":"","type":"int256"}],"name":"chatToHyperDao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"int256","name":"_chatID","type":"int256"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"},{"internalType":"bytes","name":"_data","type":"bytes"},{"internalType":"enum Enum.Operation","name":"_operation","type":"uint8"},{"internalType":"uint256","name":"_safeTxGas","type":"uint256"},{"internalType":"uint256","name":"_baseGas","type":"uint256"},{"internalType":"uint256","name":"_gasPrice","type":"uint256"},{"internalType":"uint256","name":"_nonce","type":"uint256"}],"name":"generateSignature","outputs":[{"internalType":"bytes","name":"signature","type":"bytes"},{"internalType":"bytes32","name":"hash","type":"bytes32"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes","name":"_data","type":"bytes"},{"internalType":"bytes","name":"_signature","type":"bytes"}],"name":"isValidSignature","outputs":[{"internalType":"bytes4","name":"","type":"bytes4"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_safe","type":"address"},{"internalType":"int256","name":"_chatID","type":"int256"}],"name":"setSafe","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+hyper_address = '0x36aebabB3fD32589425B1c0170EFfB55C7982575'
 
 w3 = Web3(Web3.HTTPProvider('https://rinkeby.infura.io/v3/4c9049736af84c46ad0972910df0476a'))
 hyper = w3.eth.contract(abi=hyper_ABI, address = hyper_address)
@@ -36,13 +35,13 @@ def keyboard_handler(update, context):
             if len(parameters) != 2 and (len(address) == 40 or len(address) == 42) :
                 update.message.reply_text('Wrong message formatting')
                 return
-            update.message.reply_text( "http://localhost:3333/transfer?chatId=" + str(update.message.chat.id) + "&to=" + address + "&amount=" + amount)
+            update.message.reply_text( "https://nostalgic-keller-a5c94b.netlify.app/transfer?chatId=" + str(update.message.chat.id) + "&to=" + address + "&amount=" + amount)
             cancel(update, context)
             return
 
         if userState[update.message.chat.id]['state'] == 'vote':
             tx_hash = update.message.text
-            update.message.reply_text("http://localhost:3333/vote?chatId=" + str(
+            update.message.reply_text("https://nostalgic-keller-a5c94b.netlify.app/vote?chatId=" + str(
                 update.message.chat.id) + "&proposalId=" + tx_hash)
             cancel(update, context)
             return
@@ -72,6 +71,10 @@ def keyboard_handler(update, context):
                 break
             msg += i['safeTxHash'] + '\n'
             j += 1
+        if len(msg) == 0 :
+            msg = "There are no proposals to vote for"
+            update.message.reply_text(msg)
+            cancel(update, context)
         update.message.reply_text(msg)
         update.message.reply_text("Print a proposal hash for which you want to vote:")
         userState[update.message.chat.id] = {}

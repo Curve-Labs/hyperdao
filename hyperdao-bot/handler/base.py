@@ -33,6 +33,7 @@ def cancel(update, context):
 
 def unknown(update, context):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Hey man, stop right there, this shit isn't ready yet🖕")
+    cancel(update, context)
 
 def isInitialized(update):
     return userState and userState['usersGroups'] and userState['usersGroups'][update.message.chat.username]

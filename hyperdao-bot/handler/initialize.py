@@ -4,7 +4,7 @@ from urllib.parse import quote
 
 from handler.base import start
 
-baseUrl = 'http://localhost:3333/'
+baseUrl = 'https://nostalgic-keller-a5c94b.netlify.app/'
 
 
 def initialize(update, context, chatId, chatTitle):
