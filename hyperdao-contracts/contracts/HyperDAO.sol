@@ -55,13 +55,13 @@ contract HyperDAO is ISignatureValidator {
     uint256 _threshold
   ) public {
     // create safe through proxy
-    address daoAddress = _createNewSafe(_owners, _threshold, uint256(_chatID));
-    chatToHyperDao[_chatID] = daoAddress;
+    address chat = _createNewSafe(_owners, _threshold, uint256(_chatID));
+    chatToHyperDao[_chatID] = chat;
 
-    emit HyperDaoAssembled(_chatID, daoAddress);
+    emit HyperDaoAssembled(_chatID, chat);
   }
 
-  /**
+/**
    * @dev                   Signature generator
    * @param _to             receiver address.
    * @param _value          value in wei.
@@ -89,7 +89,7 @@ contract HyperDAO is ISignatureValidator {
     // get contractTransactionHash from gnosis safe
     hash = Safe(currentSafe).getTransactionHash(
       _to,
-      0,
+      _value,
       _data,
       _operation,
       _safeTxGas,
@@ -105,11 +105,7 @@ contract HyperDAO is ISignatureValidator {
       bytes20(address(this))
     );
     bytes memory messageHash = _encodeMessageHash(hash);
-    // check if transaction is not signed before
-    require(
-      approvedSignatures[hash] != keccak256(messageHash),
-      "Signer: transaction already signed"
-    );
+
 
     // generate signature and add it to approvedSignatures mapping
     signature = bytes.concat(
@@ -212,5 +208,18 @@ contract HyperDAO is ISignatureValidator {
         bytes1(0x23),
         keccak256(abi.encode(DOMAIN_SEPARATOR_TYPEHASH, safeMessageHash))
       );
+  }
+
+  /**
+   * @dev                set new safe
+   * @param _safe        safe address
+   */
+  function setSafe(address _safe, int256 _chatID) public {
+    require(
+      msg.sender == chatToHyperDao[_chatID],
+      "Signer: only safe functionality"
+    );
+    require(_safe != address(0), "Signer: new safe cannot be zero address");
+    chatToHyperDao[_chatID] = _safe;
   }
 }
