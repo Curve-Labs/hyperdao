@@ -1,0 +1,8 @@
+<template>
+  <div class="page animated-page au-animate vote">
+    <div class="heading heading1">Vote for a Proposal</div>
+    <button class="button1" show.bind="!ethereumService.defaultAccountAddress" click.delegate="connect()">Connect to your wallet</button>
+    <button class="button1" show.bind="ethereumService.defaultAccountAddress" click.delegate="transfer()">Vote</button>
+
+  </div>
+</template>

@@ -76,7 +76,17 @@ const addDelegate = async (payload, safe, url) =>
   await post("addDelegate", payload, safe, url);
 const getDelegates = async (safe, url) =>
   (await get("getDelegates", safe, url)).results;
-
+const addConfirmation = async (payload, safeTxHash) => {
+  try {
+    const res = await axios.post(
+      `https://safe-transaction.rinkeby.gnosis.io/api/v1/multisig-transactions/${safeTxHash}/confirmations/`,
+      payload
+    );
+    return res;
+  } catch (error) {
+    throw Error(errorHandler(error).message);
+  }
+};
 const api = (safe, network) => {
   const url = getUrl(network);
   return {
@@ -87,6 +97,8 @@ const api = (safe, network) => {
     getTransactionHistory: async () => await getTransactionHistory(safe, url),
     getCurrentNonce: async () => await getCurrentNonce(safe, url),
     getDelegates: async () => await getDelegates(safe, url),
+    addConfirmation: async (payload, safeTxHash) =>
+      await addConfirmation(payload, safe, safeTxHash),
   };
 };
 

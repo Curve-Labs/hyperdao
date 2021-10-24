@@ -195,6 +195,10 @@ export class EthereumService {
    */
   private defaultAccount: Signer | Address;
 
+  public getDefaultSigner(): Signer {
+    return this.walletProvider.getSigner(this.defaultAccountAddress);
+  }
+
   /**
    * provided by ethers given provider from Web3Modal
    */

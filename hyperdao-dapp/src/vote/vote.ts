@@ -1,32 +1,30 @@
-import { Address, EthereumService } from "./../services/EthereumService";
+import { Address, EthereumService, Hash } from "./../services/EthereumService";
 import { autoinject } from "aurelia-framework";
 import { BigNumber } from "ethers";
 import { RouteConfig } from "aurelia-router";
-import "./transfer.scss";
+import "./vote.scss";
 import { TelegramDaoService } from "services/TelegramDaoService";
 
 @autoinject
-export class Transfer {
+export class Vote {
   chatId: number;
-  to: Address;
-  amount: BigNumber;
+  proposalId: Address;
 
   constructor(
     private ethereumService: EthereumService,
     private telegramDaoService: TelegramDaoService,
   ) {}
 
-  activate(params: { chatId: string, to: Address, amount: string}, _routeConfig: RouteConfig): void {
+  activate(params: { chatId: string, proposalId: Hash}, _routeConfig: RouteConfig): void {
     this.chatId = Number(params.chatId);
-    this.to = params.to;
-    this.amount = BigNumber.from(params.amount);
+    this.proposalId = params.proposalId;
   }
 
   connect(): void {
     this.ethereumService.ensureConnected();
   }
 
-  transfer(): void {
-    this.telegramDaoService.createTransferProposal(this.chatId, this.to, this.amount);
+  vote(): void {
+    this.telegramDaoService.vote(this.chatId, this.proposalId);
   }
 }

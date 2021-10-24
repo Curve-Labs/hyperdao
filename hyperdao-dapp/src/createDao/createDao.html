@@ -4,7 +4,7 @@
 
     <div class="form">
       <div class="body">
-        <label class="safeOwnersLabel" for="safeOwners">Specify any initial DAO Members (voters)</label>
+        <label class="safeOwnersLabel" for="safeOwners">Specify at least one initial DAO Member (voter)</label>
         <div class="comment safeOwnersComment">You will be automatically added when the DAO is created.</div>
         <div if.bind="initialOwners.length" class="safeOwners">
           <template repeat.for="owner of initialOwners">
@@ -26,8 +26,9 @@
         <div class="comment thresholdComment">Number of For votes that result in a win.</div>
         <input class="thresholdInput" value.bind="threshold | number" placeholder="A number" />
       </div>
-      <button class="button1" show.bind="ethereumService.defaultAccountAddress" click.delegate="createDAO()" disabled.bind="!isValid">Create DAO</button>
-      <button class="button1" show.bind="!ethereumService.defaultAccountAddress" click.delegate="connect()">Connect to your wallet</button>
+      <button class="button1" show.bind="!hyperDao && ethereumService.defaultAccountAddress" click.delegate="createDAO()" disabled.bind="!isValid">Create DAO</button>
+      <button class="button1" show.bind="!hyperDao && !ethereumService.defaultAccountAddress" click.delegate="connect()">Connect to your wallet</button>
+      <button class="button1" show.bind="hyperDao && ethereumService.defaultAccountAddress" click.delegate="addDelegate()">Complete the DAO</button>
     </div>
   </div>
 </template>

@@ -18,16 +18,9 @@
     "moduleResolution": "node",
     "baseUrl": "src",
     "resolveJsonModule": true,
-    "allowJs": true
+    "allowJs": false
   },
   "include": [
     "src",
-    "test"
   ],
-  "exclude": [
-    "test/coverage-jest"
-  ],
-  "atom": {
-    "rewriteTsconfig": false
-  }
 }

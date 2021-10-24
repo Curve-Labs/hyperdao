@@ -132,6 +132,12 @@ export class App {
         title: "Create DAO",
       },
       {
+        moduleId: PLATFORM.moduleName("./vote/vote"),
+        name: "vote",
+        route: ["vote"],
+        title: "Vote",
+      },
+      {
         moduleId: PLATFORM.moduleName("./transfer/transfer"),
         name: "transfer",
         route: ["transfer"],

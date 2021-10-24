@@ -1039,7 +1039,7 @@
       ]
     },
     "SignerV2": {
-      "address": "0x7bc5a000F699C683fEdBE1D309F5A669103649e9",
+      "address": "0x36aebabB3fD32589425B1c0170EFfB55C7982575",
       "abi": [
         {
           "inputs": [
@@ -1242,6 +1242,24 @@
             }
           ],
           "stateMutability": "view",
+          "type": "function"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "_safe",
+              "type": "address"
+            },
+            {
+              "internalType": "int256",
+              "name": "_chatID",
+              "type": "int256"
+            }
+          ],
+          "name": "setSafe",
+          "outputs": [],
+          "stateMutability": "nonpayable",
           "type": "function"
         }
       ]
