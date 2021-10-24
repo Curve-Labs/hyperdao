@@ -11,7 +11,7 @@ getTransaction(safeTxHash)
   .then((result) => {
     const { data } = result;
 
-    // TODO: HERE WE WOULD SIGN EITHER data.safeTxHash or data.transactionHash
+    // TODO: HERE WE WOULD SIGN data.safeTxHash
     const signature = "0x69e35a1b8e0ff37ca70461ca7caff4";
 
     const payload = {
