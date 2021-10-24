@@ -17,7 +17,7 @@ if (PK) {
   };
 }
 
-// require("./tasks/signature_test");
+require("./task/voting");
 
 /**
  * @type import('hardhat/config').HardhatUserConfig
@@ -69,5 +69,10 @@ module.exports = {
   },
   etherscan: {
     apiKey: ETHERSCAN_API_KEY,
+  },
+  namedAccounts: {
+    root: 0,
+    prime: 1,
+    beneficiary: 2,
   },
 };
