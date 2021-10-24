@@ -1,0 +1,6 @@
+.idea
+
+# venv files
+daoenv
+
+node_modules
