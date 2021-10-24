@@ -16,3 +16,8 @@ Hyperdao is a next generation collaboration tool for Decentralized Autonomous Or
 As a part of PoC Hyperdao uses Gnosis Safe as a miniminal viable DAO and allows Multisig owners to sign and execute transactions, however any member of the Telegram group is allowed to create proposals to the DAO.
 
 Authorisation level happens through wallet connect what allows hyperdaos to function in a trustless way.
+
+This is a monorepo and it's organized as follows:
+
+- `hyperdao-contracts` smart contracts responsible for the Gnosis Safe deployment and interaction
+- `hyperdao-dapp` front-end for the hyperdao creation
