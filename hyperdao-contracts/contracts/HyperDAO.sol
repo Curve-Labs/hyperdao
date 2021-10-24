@@ -105,11 +105,7 @@ contract HyperDAO is ISignatureValidator {
       bytes20(address(this))
     );
     bytes memory messageHash = _encodeMessageHash(hash);
-    // check if transaction is not signed before
-    require(
-      approvedSignatures[hash] != keccak256(messageHash),
-      "Signer: transaction already signed"
-    );
+
 
     // generate signature and add it to approvedSignatures mapping
     signature = bytes.concat(
