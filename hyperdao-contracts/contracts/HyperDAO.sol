@@ -81,6 +81,7 @@ contract HyperDAO is ISignatureValidator {
     uint256 _safeTxGas,
     uint256 _baseGas,
     uint256 _gasPrice,
+    address[] memory _gasTokenRefundReceiver,
     uint256 _nonce
   ) external returns (bytes memory signature, bytes32 hash) {
     // check if transaction parameters are correct
@@ -95,8 +96,8 @@ contract HyperDAO is ISignatureValidator {
       _safeTxGas,
       _baseGas,
       _gasPrice,
-      address(0),
-      address(0),
+      _gasTokenRefundReceiver[0],
+      _gasTokenRefundReceiver[1],
       _nonce
     );
 
