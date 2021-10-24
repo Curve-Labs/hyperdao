@@ -61,50 +61,44 @@ contract HyperDAO is ISignatureValidator {
     emit HyperDaoAssembled(_chatID, chat);
   }
 
-  /**
-   * @dev                     Signature generator
-   * @param _to               receiver address.
-   * @param _transactionHash  transaction hash.
-   * @param _data             encoded transaction data.
-   * @param _operation        type of operation call.
-   * @param _safeTxGas        safe transaction gas for gnosis safe.
-   * @param _baseGas          base gas for gnosis safe.
-   * @param _gasPrice         gas price for gnosis safe transaction.
-   * @param _nonce            gnosis safe contract nonce.
+/**
+   * @dev                   Signature generator
+   * @param _to             receiver address.
+   * @param _value          value in wei.
+   * @param _data           encoded transaction data.
+   * @param _operation      type of operation call.
+   * @param _safeTxGas      safe transaction gas for gnosis safe.
+   * @param _baseGas        base gas for gnosis safe.
+   * @param _gasPrice       gas price for gnosis safe transaction.
+   * @param _nonce          gnosis safe contract nonce.
    */
   function generateSignature(
     int256 _chatID,
     address _to,
-    bytes32 _transactionHash,
+    uint256 _value,
     bytes calldata _data,
     Enum.Operation _operation,
     uint256 _safeTxGas,
     uint256 _baseGas,
     uint256 _gasPrice,
-    address[] memory _gasTokenRefundReceiver,
     uint256 _nonce
   ) external returns (bytes memory signature, bytes32 hash) {
     // check if transaction parameters are correct
     address currentSafe = chatToHyperDao[_chatID];
 
-  if (_transactionHash == 0) {
-      // get contractTransactionHash from gnosis safe
-      hash = Safe(currentSafe).getTransactionHash(
-        _to,
-        0,
-        _data,
-        _operation,
-        _safeTxGas,
-        _baseGas,
-        _gasPrice,
-        _gasTokenRefundReceiver[0],
-        _gasTokenRefundReceiver[1],
-        _nonce
-      );
-  }
-  else {
-    hash = _transactionHash;
-  }
+    // get contractTransactionHash from gnosis safe
+    hash = Safe(currentSafe).getTransactionHash(
+      _to,
+      _value,
+      _data,
+      _operation,
+      _safeTxGas,
+      _baseGas,
+      _gasPrice,
+      address(0),
+      address(0),
+      _nonce
+    );
 
     bytes memory paddedAddress = bytes.concat(
       bytes12(0),
